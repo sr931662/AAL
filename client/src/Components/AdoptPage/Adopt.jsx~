@@ -1,0 +1,126 @@
+import React, { useState } from 'react'
+import styles from './Adopt.module.css'
+import { Link } from 'react-router-dom'
+import { getImageUrl } from '../../utils';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart, faHeartAlt } from '@fortawesome/free-solid-svg-icons';
+
+const Adopt = () => {
+    const pets = [
+        {id: 'id_01', name: 'Max', image: 'AAL-about.png', liked: 0, type: 'Husky', gender: 'Male'},
+        {id: 'id_02', name: 'Luna', image: 'AAL-about.png', liked: 0, type: 'Husky', gender: 'Female'},
+        {id: 'id_03', name: 'Charlie', image: 'AAL-about.png', liked: 0, type: 'Husky', gender: 'Male'},
+        {id: 'id_04', name: 'Bella', image: 'AAL-about.png', liked: 0, type: 'Husky', gender: 'Female'},
+    ];
+
+    const [searchQuery, setSearchQuery] = useState('');
+    const [filters, setFilters] = useState({ petType: '', age: '', size: '', gender: '' });
+
+    const handleSearch = (e) => {
+        setSearchQuery(e.target.value.toLowerCase());
+    };
+
+    const handleFilterChange = (e) => {
+        setFilters({ ...filters, [e.target.name]: e.target.value });
+    };
+
+    const filteredPets = pets.filter((pet) => {
+        return (
+            pet.name.toLowerCase().includes(searchQuery) &&
+            (filters.petType ? pet.petType === filters.petType : true) &&
+            (filters.age ? pet.age === filters.age : true) &&
+            (filters.size ? pet.size === filters.size : true) &&
+            (filters.gender ? pet.gender === filters.gender : true)
+        )
+    });
+
+  return (
+        <div className={styles.container}>
+            {/* Header section */}
+            <div className={styles.header}>
+                <div className={styles.header1}>
+                    <h1 className={styles.main_head}>
+                        About Adopt-A-Love
+                    </h1>
+
+                    <p className={styles.head_info}>
+                    Learn about our mission, values, and the dedicated team working to connect loving homes with pets in need.
+                    </p>
+
+                    <Link>
+                        <button className={styles.meet_team}>
+                            Meet Our Team
+                        </button>
+                    </Link>
+                </div>
+
+                <div className={styles.header2}>
+                    <img src={about1} alt="Pet playing Around" className={styles.about_img_1} />
+                </div>
+            </div>
+
+            {/* Filter section */}
+            <div className={styles.filter}>
+                {/* Pet type filter */}
+                <select className={styles.filter1} onChange={handleFilterChange}>Pet type :
+                    <option values="Any type">Any type</option>
+                    {[ ...new Set(pets.map(item => item.type))].map(type =>(
+                        <option key={type} values={type}>{type}</option>
+                    ))}
+                </select>
+
+                {/* Age filter */}
+                <select className={styles.filter2} onChange={handleFilterChange}>Age :
+                    <option values="Any age">Any age</option>
+                    {[ ...new Set(pets.map(item => item.type))].map(type =>(
+                        <option key={type} values={type}>{type}</option>
+                    ))}
+                </select>
+
+                {/* Size filter */}
+                <select className={styles.filter3} onChange={handleFilterChange}>Size :
+                    <option values="Any size">Any size</option>
+                    {[ ...new Set(pets.map(item => item.type))].map(type =>(
+                        <option key={type} values={type}>{type}</option>
+                    ))}
+
+                </select>
+
+                {/* Gender filter */}
+                <select className={styles.filter4} onChange={handleFilterChange}>Gender :
+                    <option values="Any gender">Any gender</option>
+                    <option values="Male">Male</option>
+                    <option values="Female">Female</option>
+                </select>
+
+                <input type="text" placeholder="Enter Pin code" className={styles.filter5} />
+
+                <button className={styles.f_btn}>
+                    Filter
+                </button>
+
+            </div>
+
+            {/* Available pets section */}
+            <div className={styles.pets_section}>
+                <div className={styles.header_pets}>
+                    Available Pets
+                </div>
+
+                <div className={styles.pet_cards}>
+                    <div className={styles.card}>
+                        <img src={getImageUrl('logo.png')} alt={pets.name} />
+                        <div className={styles.details}>
+                            <div className={styles.name}><FontAwesomeIcon icon={faHeart}/></div>
+                            <div className={styles.age}>abc</div>
+                            <div className={styles.location}>abc</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    )
+}
+export default Adopt;

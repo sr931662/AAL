@@ -1,0 +1,134 @@
+.container {
+    width: 100%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    margin-top: 10vh;
+    padding: 20px;
+    text-align: center;
+    background: #f9f9f9;
+    border-radius: 10px;
+  }
+  
+  h2 {
+    margin-bottom: 5px;
+  }
+  
+  p {
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .inputGroup {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  input, select {
+    width: 100%;
+    font-size: 14px;
+    height: 25px;
+    margin-top: auto;
+    margin-bottom: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .select {
+    height: 15px;
+  }
+  label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 14px;
+  }
+  
+  .fullWidth {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .checkboxGroup, .radioGroup {
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .terms {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 14px;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .submitButton {
+    width: 100%;
+    padding: 10px;
+    background: #00bcd4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .socialLogin {
+    margin-top: 10px;
+  }
+  
+  .socialIcons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .name_section {
+    justify-content: center;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .login_btn {
+    background-color: rgb(97, 174, 223);
+    border-radius: 20px;
+    padding: 10px 30px;
+    border: none;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .login_btn:hover {
+    color: rgb(42, 125, 176);
+    background: white;
+  }
+
+  .google, .facebook, .apple {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .google { background: #db4437; color: white; }
+  .facebook { background: #4267b2; color: white; }
+  .apple { background: black; color: white; }
+  

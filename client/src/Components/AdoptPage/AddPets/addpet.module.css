@@ -1,0 +1,111 @@
+/* AddPetForm.module.css */
+
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    margin-top: 200px;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    align-content: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.formGroup {
+    margin-bottom: 1rem;
+}
+
+.formGroupFull {
+    grid-column: span 2;
+}
+
+.label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+.input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.select {
+    width: 100%;
+    padding: 0.8rem;
+    height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: white;
+    cursor: pointer;
+}
+
+.select:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.submitButton {
+    grid-column: span 2;
+    padding: 1rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submitButton:hover {
+    background-color: #2980b9;
+}
+
+.loading {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+    color: #2c3e50;
+}
+
+.accessDenied {
+    text-align: center;
+    padding: 2rem;
+    color: #e74c3c;
+}
+
+.accessDenied h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.accessDenied p {
+    font-size: 1.2rem;
+}

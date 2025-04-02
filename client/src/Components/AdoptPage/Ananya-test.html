@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        * {
+            box-sizing: border-box; /* Apply box-sizing to all elements */
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f0ff; /* Background of the page */
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background-color: #e0f7fa; /* Background of the login form (light blue) */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: black;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: black;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+        .form-group input::placeholder {
+            color: #999;
+        }
+ .register-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .register-link a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SafarEase</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="aadhar-number">Aadhar Number</label>
+                <input type="tel" id="aadhar-number" name="aadhar-number" placeholder="Enter your Aadhar number" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="text" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            <button type="button" class="submit-btn" id="loginButton">Login</button>
+        </form>
+        <div class="register-link">
+            <span> <a href="sreg.html" id="registerLink">New user?Register now</a></span>
+        </div>
+    </div>
+
+    <script>
+        let recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.continuous = true;
+        recognition.interimResults = false;
+        recognition.lang = 'en-US';
+
+        let step = 0;
+
+        function speak(message) {
+            let speech = new SpeechSynthesisUtterance(message);
+            speech.lang = 'en-US';
+            window.speechSynthesis.speak(speech);
+        }
+
+        function stopListening() {
+            window.speechSynthesis.cancel();
+            recognition.stop();
+        }
+
+        function validateAadhar(aadharNumber) {
+            let regex = /^\d{12}$/;  // Ensure only 12 numeric digits
+            return regex.test(aadharNumber);
+        }
+
+        document.body.addEventListener("click", function() {
+            if (step === 0) {
+                speak("Start speaking your Aadhar number now.");
+            } else if (step === 1) {
+                speak("Start speaking your password now.");
+            }
+            recognition.start();
+        });
+
+        recognition.onresult = function(event) {
+            let transcript = event.results[0][0].transcript.trim().toLowerCase();
+
+            if (step === 0) {
+                transcript = transcript.replace(/\D/g, "");  // Remove non-numeric characters
+                if (!validateAadhar(transcript)) {
+                    speak("Invalid Aadhar number. It must be 12 digits. Try again.");
+                    return;
+                }
+                document.getElementById("aadhar-number").value = "";  // Clear old value
+                document.getElementById("aadhar-number").value = transcript;
+                speak(`Aadhar number entered: ${transcript}. Tap anywhere to change or say 'Password now'.`);
+                step++;
+            } else if (step === 1) {
+                if (transcript === "password now") {
+                    speak("Speak your password now.");
+                } else {
+                    document.getElementById("password").value = "";  // Clear old value
+                    document.getElementById("password").value = transcript;
+                    speak("Password saved. Say 'yes' to continue or tap to re-enter.");
+                    step++;
+                }
+            } else if (step === 2) {
+                if (transcript.includes("yes")) {
+    speak("Redirecting to bookings page...");
+    stopListening();
+    setTimeout(() => { window.location.href = "bookings.html"; }, 1000);
+                } else {
+                    speak("Tap anywhere to re-enter your password.");
+                    step = 1;  // Go back to password entry
+                }
+            }
+        };
+
+        document.getElementById("loginButton").addEventListener("click", function() {
+            let aadharInput = document.getElementById("aadhar-number").value;
+            let passwordInput = document.getElementById("password").value;
+
+            if (!validateAadhar(aadharInput)) {
+                document.getElementById("aadhar-number").style.border = "2px solid red";  // Highlight Aadhar field
+                speak("Invalid Aadhar number. It must be 12 digits.");
+                return;
+            } else {
+                document.getElementById("aadhar-number").style.border = "";  // Reset border
+            }
+
+            if (!passwordInput.trim()) {
+                speak("Password cannot be empty.");
+                return;
+            }
+
+            stopListening();
+            window.location.href = "bookings.html";
+        });
+
+        window.onload = function() {
+            setTimeout(() => speak("Welcome to SafarEase. Tap anywhere to start recording."), 1000);
+        };
+    </script>
+       
+       
+</body>
+</html>

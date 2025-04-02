@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>Pet Products - Adopt-A-Love</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/css/glide.core.min.css" rel="stylesheet">    <link href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/css/glide.theme.min.css" rel="stylesheet">
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet">    <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/glide.min.js"></script>
+    <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#1B9AF5" data-border-radius='large'></script>
+</head>
+<body class="bg-gray-50 font-['DM_Sans']">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">        <nav class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">                    <img src="https://ai-public.creatie.ai/gen_page/logo_placeholder.png" alt="Adopt-A-Love" class="h-8">
+                    <div class="hidden md:flex space-x-8 ml-10">                        <a href="#" class="text-custom font-medium">Food</a>
+                        <a href="#" class="text-gray-500 hover:text-custom">Supplies</a>
+                        <a href="#" class="text-gray-500 hover:text-custom">Healthcare</a>
+                        <a href="#" class="text-gray-500 hover:text-custom">Grooming</a>
+                        <a href="#" class="text-gray-500 hover:text-custom">Accessories</a>
+                    </div>                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <input type="text" placeholder="Search products..." class="w-64 pl-10 pr-4 py-2 border border-gray-200 focus:border-custom focus:ring-0">                        <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                    </div>
+                    <button class="!rounded-button bg-custom text-white px-4 py-2 flex items-center">                        <i class="fas fa-shopping-cart mr-2"></i>
+                        Cart (3)
+                    </button>                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="mt-16 max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8">        <div class="glide mb-12">
+            <div class="glide__track" data-glide-el="track">
+                <ul class="glide__slides">                    <li class="glide__slide">
+                        <div class="relative h-[400px] rounded-lg overflow-hidden">                            <img src="https://creatie.ai/ai/api/search-image?query=A premium pet food photography scene with natural lighting, showing high-end dog food bowls filled with fresh ingredients, arranged on a clean white marble counter with minimal styling and soft shadows, perfect for e-commerce&width=1200&height=400&orientation=landscape&flag=0aab92d5-8379-4649-b4d8-e67a091bbdc0" alt="Premium Pet Food" class="w-full h-full object-cover">                            <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex items-center">
+                                <div class="text-white ml-16">                                    <h2 class="text-4xl font-bold mb-4">Premium Pet Food</h2>
+                                    <p class="text-xl mb-6">20% off on all premium brands</p>
+                                    <button class="!rounded-button bg-white text-gray-900 px-6 py-3">Shop Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>                </ul>
+            </div>
+            <div class="glide__bullets" data-glide-el="controls[nav]">
+                <button class="glide__bullet" data-glide-dir="=0"></button>
+                <button class="glide__bullet" data-glide-dir="=1"></button>
+                <button class="glide__bullet" data-glide-dir="=2"></button>
+            </div>
+        </div>
+
+        <div class="flex gap-8">
+            <aside class="w-64 flex-shrink-0">
+                <div class="bg-white rounded-lg p-6 shadow-sm">                    <h3 class="font-medium text-lg mb-4">Filters</h3>
+                    <div class="space-y-4">
+                        <div>                            <label class="block text-sm font-medium text-gray-700 mb-2">Pet Type</label>
+                            <select class="w-full border-gray-200 focus:border-custom focus:ring-0">                                <option>All Pets</option>
+                                <option>Dogs</option>
+                                <option>Cats</option>
+                                <option>Birds</option>
+                            </select>
+                        </div>                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Price Range</label>                            <div class="flex items-center space-x-2">
+                                <input type="text" placeholder="Min" class="w-full border-gray-200 focus:border-custom focus:ring-0">                                <span>-</span>
+                                <input type="text" placeholder="Max" class="w-full border-gray-200 focus:border-custom focus:ring-0">                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Brand</label>
+                            <div class="space-y-2">
+                                <label class="flex items-center">                                    <input type="checkbox" class="text-custom focus:ring-0">
+                                    <span class="ml-2">Royal Canin</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="text-custom focus:ring-0">                                    <span class="ml-2">Purina</span>
+                                </label>
+                                <label class="flex items-center">                                    <input type="checkbox" class="text-custom focus:ring-0">
+                                    <span class="ml-2">Hill's</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>                </div>
+            </aside>
+
+            <div class="flex-1">
+                <div class="grid grid-cols-3 gap-6">                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                        <img src="https://creatie.ai/ai/api/search-image?query=A professional product photography of premium dry dog food in an elegant packaging, placed on a clean white background with soft shadows, showing high-quality kibble scattered around&width=300&height=300&orientation=squarish&flag=6c309385-c7d1-4a8d-9157-4d852f2b2a3e" alt="Premium Dog Food" class="w-full h-48 object-cover">                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-medium">Premium Dog Food</h3>
+                                <div class="flex items-center text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <span class="ml-1 text-gray-600">4.8</span>
+                                </div>
+                            </div>                            <p class="text-gray-500 text-sm mb-4">Royal Canin - Adult Large Breed</p>
+                            <div class="flex items-center justify-between">                                <span class="font-bold text-lg">$49.99</span>
+                                <button class="!rounded-button bg-custom text-white px-4 py-2">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">                        <img src="https://creatie.ai/ai/api/search-image?query=A stylish pet grooming brush with ergonomic handle, photographed on a minimal white background with soft lighting, showing premium quality materials and design details&width=300&height=300&orientation=squarish&flag=43e467b7-979d-4ddb-9250-70cfe8b38464" alt="Grooming Brush" class="w-full h-48 object-cover">                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-medium">Grooming Brush</h3>
+                                <div class="flex items-center text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <span class="ml-1 text-gray-600">4.6</span>
+                                </div>
+                            </div>                            <p class="text-gray-500 text-sm mb-4">Professional De-shedding Tool</p>
+                            <div class="flex items-center justify-between">                                <span class="font-bold text-lg">$24.99</span>
+                                <button class="!rounded-button bg-custom text-white px-4 py-2">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">                        <img src="https://creatie.ai/ai/api/search-image?query=A luxurious pet bed with plush materials and modern design, photographed in a clean studio setting with soft lighting, showing comfort and style for pets&width=300&height=300&orientation=squarish&flag=75f5aa43-b760-45c4-a388-51af3cf1292d" alt="Luxury Pet Bed" class="w-full h-48 object-cover">                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-medium">Luxury Pet Bed</h3>
+                                <div class="flex items-center text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <span class="ml-1 text-gray-600">4.9</span>
+                                </div>
+                            </div>                            <p class="text-gray-500 text-sm mb-4">Orthopedic Memory Foam</p>
+                            <div class="flex items-center justify-between">                                <span class="font-bold text-lg">$79.99</span>
+                                <button class="!rounded-button bg-custom text-white px-4 py-2">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>            </div>
+        </div>
+
+        <section class="mt-12 bg-white rounded-lg p-6 shadow-sm">
+            <h2 class="text-2xl font-bold mb-6">Pet Care Tips</h2>
+            <div class="grid grid-cols-3 gap-6">
+                <div class="p-4 border border-gray-200 rounded-lg">                    <i class="fas fa-paw text-custom text-2xl mb-4"></i>
+                    <h3 class="font-medium mb-2">Proper Nutrition</h3>                    <p class="text-gray-500 text-sm">Learn about balanced diet requirements for your pet's optimal health.</p>
+                </div>                <div class="p-4 border border-gray-200 rounded-lg">
+                    <i class="fas fa-heart text-custom text-2xl mb-4"></i>
+                    <h3 class="font-medium mb-2">Regular Exercise</h3>
+                    <p class="text-gray-500 text-sm">Tips for keeping your pet active and maintaining a healthy lifestyle.</p>
+                </div>
+                <div class="p-4 border border-gray-200 rounded-lg">                    <i class="fas fa-shield text-custom text-2xl mb-4"></i>
+                    <h3 class="font-medium mb-2">Healthcare Essentials</h3>                    <p class="text-gray-500 text-sm">Essential healthcare products every pet owner should have.</p>
+                </div>            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t mt-12">
+        <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8">            <div class="grid grid-cols-4 gap-8">
+                <div>
+                    <h4 class="font-medium mb-4">About Us</h4>                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li><a href="#" class="hover:text-custom">Our Story</a></li>
+                        <li><a href="#" class="hover:text-custom">Careers</a></li>
+                        <li><a href="#" class="hover:text-custom">Press</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Customer Service</h4>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li><a href="#" class="hover:text-custom">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-custom">Shipping Policy</a></li>
+                        <li><a href="#" class="hover:text-custom">Returns & Exchanges</a></li>
+                    </ul>
+                </div>
+                <div>                    <h4 class="font-medium mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-gray-500">                        <li><a href="#" class="hover:text-custom">FAQs</a></li>
+                        <li><a href="#" class="hover:text-custom">Size Guide</a></li>
+                        <li><a href="#" class="hover:text-custom">Track Order</a></li>
+                    </ul>                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Newsletter</h4>
+                    <p class="text-sm text-gray-500 mb-4">Subscribe to get special offers and updates.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Enter your email" class="flex-1 border-gray-200 focus:border-custom focus:ring-0">                        <button class="!rounded-button bg-custom text-white px-4 py-2 ml-2">Subscribe</button>
+                    </div>                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        new Glide('.glide', {
+            type: 'carousel',
+            perView: 1,
+            autoplay: 5000,
+            animationDuration: 1000,
+            gap: 0,
+            hoverpause: true
+        }).mount();
+    </script></body>
+</html>

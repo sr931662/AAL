@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>PetLove - Find Your Perfect Companion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet">    <link href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/css/glide.core.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/css/glide.theme.min.css" rel="stylesheet">    <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/glide.min.js"></script>
+    <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#1B9AF5" data-border-radius='large'></script>
+</head>
+<body class="font-sans bg-gray-50">
+    <header class="bg-white shadow-sm fixed w-full z-50">
+        <nav class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <img src="https://ai-public.creatie.ai/gen_page/logo_placeholder.png" alt="PetLove Logo" class="h-8 w-auto">                </div>
+                <div class="flex-1 flex items-center justify-center px-8">
+                    <div class="max-w-lg w-full">                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">                                <i class="fas fa-search text-gray-400"></i>
+                            </div>
+                            <input type="text" class="block w-full pl-10 pr-3 py-2 border border-gray-200 !rounded-button bg-gray-50 text-gray-900 placeholder-gray-500 focus:outline-none focus:border-custom focus:ring-1 focus:ring-custom" placeholder="Search for pets, care tips, etc.">                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-6">                    <a href="#" class="text-gray-700 hover:text-custom">About</a>
+                    <a href="#" class="text-gray-700 hover:text-custom">Adopt</a>
+                    <a href="#" class="text-gray-700 hover:text-custom">Care Tips</a>
+                    <button class="!rounded-button bg-custom text-white px-4 py-2 hover:bg-custom/90">Sign In</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-16">
+        <section class="relative bg-gray-900 h-[600px] overflow-hidden">            <img src="https://creatie.ai/ai/api/search-image?query=A heartwarming scene of diverse pets including dogs and cats playing together in a cozy home environment, with soft natural lighting and warm tones, creating an inviting and emotional atmosphere that showcases the joy of pet companionship&width=1920&height=1080&orientation=landscape&flag=4fa4e76c-d0f0-40ef-9660-224438d58d62" class="absolute inset-0 w-full h-full object-cover opacity-50" alt="Hero Image">            <div class="relative max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
+                <div class="max-w-2xl">                    <h1 class="text-5xl font-bold text-white mb-6">Find Your Perfect Companion</h1>
+                    <p class="text-xl text-gray-200 mb-8">Give a loving home to a pet in need. Our adoption process makes it easy to find your perfect match.</p>
+                    <div class="space-x-4">                        <button class="!rounded-button bg-custom text-white px-6 py-3 text-lg hover:bg-custom/90">
+                            <i class="fas fa-heart mr-2"></i>Adopt Now
+                        </button>
+                        <button class="!rounded-button bg-white text-gray-900 px-6 py-3 text-lg hover:bg-gray-100">                            <i class="fas fa-hands-helping mr-2"></i>Support Us
+                        </button>
+                    </div>                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-white">
+            <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">                <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">Featured Pets</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">                    <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-100">
+                        <img src="https://creatie.ai/ai/api/search-image?query=A portrait of an adorable golden retriever puppy with warm eyes and a friendly expression, sitting against a simple light gray background, professionally lit to highlight the puppy's features&width=600&height=400&orientation=landscape&flag=4e9e3dea-4b4c-4c01-98f3-c43ea078695f" class="w-full h-64 object-cover" alt="Pet Image">                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Max</h3>                            <p class="text-gray-600 mb-4">2 years old • Golden Retriever • Male</p>
+                            <button class="!rounded-button w-full bg-custom text-white py-2 hover:bg-custom/90">Learn More</button>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-100">                        <img src="https://creatie.ai/ai/api/search-image?query=A charming portrait of a British Shorthair cat with bright blue eyes and silver fur, sitting elegantly against a simple light gray background, professional studio lighting&width=600&height=400&orientation=landscape&flag=fab3f716-38c3-4a75-8633-4f1ddffea0d5" class="w-full h-64 object-cover" alt="Pet Image">                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Luna</h3>                            <p class="text-gray-600 mb-4">1 year old • British Shorthair • Female</p>
+                            <button class="!rounded-button w-full bg-custom text-white py-2 hover:bg-custom/90">Learn More</button>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-100">                        <img src="https://creatie.ai/ai/api/search-image?query=A sweet portrait of a young labrador puppy with chocolate brown fur and gentle eyes, sitting against a simple light gray background, professional studio lighting&width=600&height=400&orientation=landscape&flag=aaf293b9-d8ee-41c0-a820-bc6be5f52cb8" class="w-full h-64 object-cover" alt="Pet Image">                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Charlie</h3>                            <p class="text-gray-600 mb-4">6 months old • Labrador • Male</p>
+                            <button class="!rounded-button w-full bg-custom text-white py-2 hover:bg-custom/90">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>        <section class="py-16 bg-gray-50">
+            <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">Adoption Process</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center">                        <div class="w-16 h-16 bg-custom/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-clipboard-list text-2xl text-custom"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">1. Application</h3>                        <p class="text-gray-600">Fill out our adoption application form with your details and preferences</p>
+                    </div>                    <div class="text-center">
+                        <div class="w-16 h-16 bg-custom/10 rounded-full flex items-center justify-center mx-auto mb-4">                            <i class="fas fa-home text-2xl text-custom"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">2. Home Check</h3>
+                        <p class="text-gray-600">We'll visit your home to ensure it's suitable for your chosen pet</p>                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-custom/10 rounded-full flex items-center justify-center mx-auto mb-4">                            <i class="fas fa-handshake text-2xl text-custom"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">3. Meet & Greet</h3>
+                        <p class="text-gray-600">Come meet your potential new family member at our shelter</p>                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-custom/10 rounded-full flex items-center justify-center mx-auto mb-4">                            <i class="fas fa-heart text-2xl text-custom"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">4. Adoption</h3>
+                        <p class="text-gray-600">Complete the adoption process and welcome your new pet home</p>                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-white">            <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">Pet Care Tips</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 rounded-lg p-8">                        <div class="w-12 h-12 bg-custom/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-heartbeat text-xl text-custom"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Health Care</h3>                        <p class="text-gray-600 mb-4">Regular check-ups, vaccinations, and preventive care are essential for your pet's well-being.</p>                        <a href="#" class="text-custom hover:text-custom/90 font-medium">Learn more <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-8">
+                        <div class="w-12 h-12 bg-custom/10 rounded-full flex items-center justify-center mb-4">                            <i class="fas fa-bone text-xl text-custom"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Nutrition</h3>
+                        <p class="text-gray-600 mb-4">Proper diet and feeding schedules help maintain your pet's health and happiness.</p>                        <a href="#" class="text-custom hover:text-custom/90 font-medium">Learn more <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-8">
+                        <div class="w-12 h-12 bg-custom/10 rounded-full flex items-center justify-center mb-4">                            <i class="fas fa-dog text-xl text-custom"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Training</h3>
+                        <p class="text-gray-600 mb-4">Positive reinforcement training methods for better behavior and bonding.</p>                        <a href="#" class="text-custom hover:text-custom/90 font-medium">Learn more <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-gray-50">            <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">Success Stories</h2>
+                <div class="glide">
+                    <div class="glide__track" data-glide-el="track">
+                        <ul class="glide__slides">                            <li class="glide__slide">
+                                <div class="bg-white rounded-lg shadow-sm p-8 mx-4">
+                                    <div class="flex items-center mb-6">
+                                        <img src="https://creatie.ai/ai/api/search-image?query=A candid portrait of a happy middle-aged woman with her adopted golden retriever, both smiling at the camera, natural lighting, warm and authentic feel&width=80&height=80&orientation=squarish&flag=04357ca0-1046-448f-94fc-89f6549b5924" class="w-16 h-16 rounded-full object-cover mr-4" alt="Adopter">                                        <div>
+                                            <h4 class="text-lg font-semibold text-gray-900">Sarah Johnson</h4>
+                                            <p class="text-gray-600">Adopted Max in 2023</p>
+                                        </div>                                    </div>
+                                    <p class="text-gray-600">"Adopting Max was the best decision we ever made. He's brought so much joy and love into our home. The adoption process was smooth, and the support from PetLove has been amazing."</p>                                </div>
+                            </li>
+                            <li class="glide__slide">
+                                <div class="bg-white rounded-lg shadow-sm p-8 mx-4">                                    <div class="flex items-center mb-6">
+                                        <img src="https://creatie.ai/ai/api/search-image?query=A natural portrait of a young couple with their adopted cat, sitting on a couch, casual and relaxed atmosphere, genuine smiles&width=80&height=80&orientation=squarish&flag=84895c7f-fd0b-4488-bcdf-04f9101d9044" class="w-16 h-16 rounded-full object-cover mr-4" alt="Adopter">                                        <div>
+                                            <h4 class="text-lg font-semibold text-gray-900">Mike & Lisa</h4>
+                                            <p class="text-gray-600">Adopted Luna in 2023</p>
+                                        </div>                                    </div>
+                                    <p class="text-gray-600">"Luna has completed our family in ways we never imagined. The care and attention PetLove showed during the adoption process made us feel confident in our decision."</p>                                </div>
+                            </li>
+                        </ul>
+                    </div>                    <div class="glide__bullets" data-glide-el="controls[nav]">
+                        <button class="glide__bullet" data-glide-dir="=0"></button>
+                        <button class="glide__bullet" data-glide-dir="=1"></button>
+                    </div>
+                </div>            </div>
+        </section>
+
+        <section class="py-16 bg-white">
+            <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div>
+                        <h2 class="text-3xl font-bold text-gray-900 mb-8">Contact Us</h2>
+                        <form class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                                <input type="text" class="w-full px-4 py-2 border border-gray-200 !rounded-button focus:ring-custom focus:border-custom">                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                <input type="email" class="w-full px-4 py-2 border border-gray-200 !rounded-button focus:ring-custom focus:border-custom">                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                                <textarea rows="4" class="w-full px-4 py-2 border border-gray-200 !rounded-button focus:ring-custom focus:border-custom"></textarea>
+                            </div>
+                            <button type="submit" class="!rounded-button w-full bg-custom text-white py-3 hover:bg-custom/90">Send Message</button>
+                        </form>
+                    </div>
+                    <div>
+                        <div class="bg-gray-50 rounded-lg p-8 h-full">                            <h3 class="text-xl font-semibold text-gray-900 mb-6">Visit Our Shelter</h3>
+                            <div class="space-y-4 mb-8">                                <div class="flex items-start">
+                                    <i class="fas fa-map-marker-alt text-custom mt-1 mr-4"></i>
+                                    <p class="text-gray-600">123 Pet Street, Animal City, AC 12345</p>
+                                </div>                                <div class="flex items-start">
+                                    <i class="fas fa-phone text-custom mt-1 mr-4"></i>
+                                    <p class="text-gray-600">(555) 123-4567</p>
+                                </div>
+                                <div class="flex items-start">                                    <i class="fas fa-envelope text-custom mt-1 mr-4"></i>
+                                    <p class="text-gray-600">info@petlove.com</p>
+                                </div>
+                            </div>
+                            <div class="rounded-lg overflow-hidden h-48">                                <img src="https://ai-public.creatie.ai/gen_page/map_placeholder_1280x720.png" class="w-full h-full object-cover" alt="Map">                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img src="https://ai-public.creatie.ai/gen_page/logo_placeholder.png" alt="PetLove Logo" class="h-8 w-auto mb-4">                    <p class="text-gray-400">Finding loving homes for pets in need.</p>
+                </div>
+                <div>                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Available Pets</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Adoption Process</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Care Tips</a></li>
+                    </ul>
+                </div>
+                <div>                    <h4 class="text-lg font-semibold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                    </div>                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+                    <form class="space-y-4">                        <input type="email" placeholder="Enter your email" class="w-full px-4 py-2 bg-gray-800 border border-gray-700 !rounded-button text-white placeholder-gray-400 focus:ring-custom focus:border-custom">                        <button type="submit" class="!rounded-button w-full bg-custom text-white py-2 hover:bg-custom/90">Subscribe</button>                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">                <p class="text-gray-400">&copy; 2024 PetLove. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>    <script>
+        new Glide('.glide', {
+            type: 'carousel',
+            perView: 2,
+            gap: 32,
+            autoplay: 3000,
+            breakpoints: {
+                768: {
+                    perView: 1
+                }
+            }
+        }).mount()
+    </script></body>
+</html>

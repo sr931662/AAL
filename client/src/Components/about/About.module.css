@@ -1,0 +1,362 @@
+.container {
+    background-color: #f4f1f1;
+    margin-top: 64px;
+    width: 100%;
+}
+
+.header {
+    position: relative;
+    height: 40vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.header1 {
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.main_head {
+    font-size: 50px;
+}
+
+.head_info {
+    font-size: 25px;
+    color: rgb(95, 95, 95);
+}
+
+.header2 {
+    padding: 50px 50px 0px 50px;
+}
+
+.meet_team {
+    padding: 15px 50px;
+    border-radius: 50px;
+    border: none;
+    background-color: rgb(27 154 245);
+    color: white;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.about_img_1 {
+    height: 80%;
+}
+
+/* mission section */
+
+.mission {
+    margin-bottom: 25px;
+    padding: 20px 0 20px 0;
+    /* height: 25vh; */
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.m_head {
+    font-size: 50px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.m_moto {
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+/* team section */
+
+.team {
+    width: 100%;
+    height: 35vh;
+    padding-bottom: 2vh;
+}
+
+.team_header {
+    padding-top: 1vh;
+    font-size: 50px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.team_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-left: 2.5vw;
+    padding-right: 2.5vw;
+    gap: 5vw;
+}
+
+.team_card {
+    background-color: #fff;
+    width: 45vw;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.team_pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    background: black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2vh;
+}
+
+.Name {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.role {
+    margin-top: -5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* impact section */
+
+.impact {
+    height: 35vh;
+    width: 100%;
+}
+
+.impact_header {
+    padding-top: 1vh;
+    font-size: 50px;
+    font-weight: 800;
+    margin-left: 1vw;
+}
+
+.impact_container {
+    display: grid;
+    padding-left: 2.5vw;
+    margin-right: 2.5vw;
+    gap: 2.5vw;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.impact_card {
+    background-color: #fff;
+    width: 21.875vw;
+    height: 20vh;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.impact_value {
+    color: rgb(27 154 245);
+    font-size: 35px;
+    text-align: center;
+}
+
+.impact_state {
+    font-size: 24px;
+    text-align: center;
+}
+
+/* Join Our Cause Section */
+
+/* Join Our Cause Section */
+.cause {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+    padding: 5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cause::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.3)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+    background-size: 100% 100%;
+    opacity: 0.1;
+    z-index: 0;
+  }
+  
+  .cause_header {
+    font-size: 2.8rem;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  
+  .cause_header::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: #3498db;
+    border-radius: 2px;
+  }
+  
+  .cause_info {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
+  }
+  
+  .cause_container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .cause_card {
+    background: white;
+    border-radius: 12px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+  }
+  
+  .cause_card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  }
+  
+  .cause_card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(to bottom, #3498db, #2ecc71);
+  }
+  
+  .cause_h2 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 1.2rem;
+    position: relative;
+    padding-bottom: 0.8rem;
+  }
+  
+  .cause_h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: #3498db;
+    border-radius: 3px;
+  }
+  
+  .cause_p {
+    font-size: 1rem;
+    color: #7f8c8d;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+  
+  .cause_link {
+    text-decoration: none;
+  }
+  
+  .cause_btn {
+    background: linear-gradient(to right, #3498db, #2ecc71);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cause_btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.5s ease;
+  }
+  
+
+  .cause_btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+  }
+  
+  .cause_btn:hover::before {
+    left: 100%;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .cause {
+      padding: 3rem 1.5rem;
+    }
+    
+    .cause_header {
+      font-size: 2.2rem;
+    }
+    
+    .cause_info {
+      font-size: 1rem;
+    }
+    
+    .cause_container {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .cause_card {
+      padding: 2rem;
+    }
+    
+    .cause_h2 {
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .cause_header {
+      font-size: 1.8rem;
+    }
+    
+    .cause_card {
+      padding: 1.5rem;
+    }
+  }
