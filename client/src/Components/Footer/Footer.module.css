@@ -4,8 +4,8 @@
     width: 100vw;
     background-color: rgb(17 24 39);
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-areas: ". . . .";
+    grid-template-columns: 1fr;
+    /* grid-template-areas: ". . . ."; */
 }
 
 .logo_phrase {

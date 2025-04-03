@@ -587,6 +587,12 @@ textarea {
         margin-bottom: 1000px;
     }
     
+    .contact_nav {
+        height: 135vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
    
     .map {
         /* background-image: url('../../Assets/sample_map.jpg'); */
@@ -606,7 +612,7 @@ textarea {
 @media screen and (max-width: 768px) {
     /* adoption tips section response */
     .Ad_process {
-        height: 45vh;
+        height: 70vh;
         background-color: rgb(249 250 251);
         width: 100%;
         justify-content: center;
@@ -744,19 +750,24 @@ textarea {
     .visitor {
         width: 90%;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        height: 30vh;
+        height: auto;
         background-color: rgb(236, 236, 236);
         border-radius: 25px;
-        margin-bottom: 1000px;
+        
     }
     
-   
+    .contact_nav {
+        height: 145vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
     .map {
         /* background-image: url('../../Assets/sample_map.jpg'); */
         display: flex;
         margin-left: auto;
         margin-right: auto;
-        height: auto;
+        height: 500px;
         width: 90%;
         border-width: 2px;
         align-content: center;
