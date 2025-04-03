@@ -238,5 +238,46 @@ select {
     .pets_section {
         max-width: 740px;
     }
+    .filter {
+        margin-top: 10vh;
+    }
+    .header2 {
+        height: 80%;
+        padding: 25px 25px 0px 25px;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .main_head {
+        margin-top: auto;
+        margin-bottom: auto;
+        font-size: 18px;
+    }
     
+    .filter {
+        margin-top: 0vh;
+    }
+    .head_info {
+        margin-top: auto;
+        margin-bottom: auto;
+        font-size: 12px;
+        color: rgb(95, 95, 95);
+    }
+    .header2 {
+        height: 50%;
+        padding: 25px 25px 0px 25px;
+    }
+}
+
+@media screen and (max-width: 496px) {
+    
+    .header2 {
+        height: 30%;
+        padding: 25px 25px 0px 25px;
+    }
+    
+    .filter {
+        margin-top: -10vh;
+    }
 }

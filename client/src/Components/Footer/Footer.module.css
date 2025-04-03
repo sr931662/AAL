@@ -1,11 +1,11 @@
 .foot {
     bottom: 0;
-    height: 50vh;
+    height: auto;
     width: 100vw;
     background-color: rgb(17 24 39);
     display: grid;
-    grid-template-columns: 1fr;
-    /* grid-template-areas: ". . . ."; */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: ". . . .";
 }
 
 .logo_phrase {
@@ -93,11 +93,11 @@
 }
 
 /* For mobile devices (496px and below) */
-@media (max-width: 496px) {
+@media screen and (max-width: 496px) {
   .foot {
+    display: grid;
     grid-template-columns: 1fr;
-    padding: 1.5rem 1rem;
-    gap: 1rem;
+    grid-template-areas: ".";
   }
   
   .batch {
