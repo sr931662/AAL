@@ -418,6 +418,18 @@ const register = async (req, res) => {
     }
 };
 
+const getAllUsers = async (req, res) => {
+    try {
+        const users = await User.find({}, { pass: 0, __v: 0 }); // Exclude password & version key
+        res.status(200).json(users);
+    } catch (err) {
+        console.error("Error fetching users:", err);
+        res.status(500).json({ 
+            message: "Error fetching users", 
+            error: err.message 
+        });
+    }
+};
 
 
 // ✅ GET USER DATA
@@ -429,4 +441,4 @@ const userData = async (req, res) => {
         res.status(500).json({ message: "Internal server error" });
     }
 };
-module.exports = { home, login, register, userData };
+module.exports = { home, login, register, userData, getAllUsers };

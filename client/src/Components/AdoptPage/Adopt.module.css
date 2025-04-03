@@ -119,22 +119,22 @@ select {
 }
 
 .card {
-    width: 353.33px;
-    height: 52vh;
+    width: 100%;
+    height: 42vh;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 15px;
 }
 
 .pet_img {
-    height: 65%;
+    height: 50%;
     width: 98%;
     padding: 1%;
     border-radius: 15px;
 }
 
 .details {
-    padding: 2.5vh;
+    padding: 1.5vh;
     display: flex;
     flex-direction: column;
 }
@@ -152,7 +152,7 @@ select {
 }
 
 .pet_name {
-    font-size: 20px;
+    font-size: 18px;
     text-align: left;
     font-weight: 600;
 }
@@ -168,6 +168,7 @@ select {
     font-size: 16px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 20px;
 }
 
@@ -177,17 +178,65 @@ select {
     color: rgb(36, 98, 207);
     border-radius: 20px;
     padding: 2.5px 7px;
+    width: fit-content;
 }
 
 .learn {
     cursor: pointer;
     margin-top: 5px;
     border-radius: 25px;
-    height: 40px;
+    /* height: 40px; */
     border: none;
     padding: 10px 20px;
     background: rgb(27 154 245);
-    font-size: 18px;
+    font-size: 16px;
     text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
     color: white;
+}
+
+@media screen and (max-width: 1440px) {
+    .main_head {
+        font-size: 30px;
+    }
+    .head_info {
+        font-size: 18px;
+        color: rgb(95, 95, 95);
+    }
+    .filter {
+        max-width: 1040px;
+        margin-top: 5vh;
+    }
+    .pet_cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+    .pets_section {
+        max-width: 1040px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .main_head {
+        font-size: 30px;
+    }
+    .head_info {
+        font-size: 18px;
+        color: rgb(95, 95, 95);
+    }
+    .filter {
+        max-width: 740px;
+        margin-top: 5vh;
+    }
+    .pet_cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+    .pets_section {
+        max-width: 740px;
+    }
+    
 }

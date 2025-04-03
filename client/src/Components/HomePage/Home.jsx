@@ -1,18 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styles from './Home.module.css';
 import { Link } from "react-router-dom";
 import map from '../../Assets/sample_map.jpg';
-import video from "../../Assets/test-video.mp4"
+import video from "../../Assets/hero-video.mp4"
 import { faHome, faPager, faHandshake, faHeart, faBedPulse, faHeartPulse, faBone, faDog, faArrowRight, faMap, faMapMarker, faMapMarked, faMapMarkerAlt, faPhoneAlt, faPhone, faMessage, faMailForward, faEnvelope } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import emailjs from '@emailjs/browser';
+import { useAuth } from '../../store/auth'; // Import useAuth if you have authentication context
 
 const ITEMS_PER_PAGE = 2;
 
 
 const Home = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  const { user } = useAuth(); // Get user from auth context
 
+  // Create a ref for the video element
+  const videoRef = useRef(null);
   const residentialProjects = [
       // ... your project data here
       { id:'id_01', 
@@ -57,31 +61,87 @@ const Home = () => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+    .sendForm('service_6c2jgbd', 'template_rjyr8rc', form.current, {
+      publicKey: 'enKl3zRd23Mfn39ZU',
+    })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
+  };
+  
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      // Set initial playback rate
+      video.playbackRate = 0.5;
+      
+      // Ensure smooth playback with these optimizations
+      video.playsInline = true;
+      video.preload = "auto";
+      video.setAttribute('muted', '');
+      video.setAttribute('autoplay', '');
+      video.setAttribute('loop', '');
+
+      // Handle potential stuttering
+      const handleCanPlay = () => {
+        video.play().catch(e => console.log("Autoplay prevented:", e));
+      };
+      
+      video.addEventListener('canplay', handleCanPlay);
+      return () => video.removeEventListener('canplay', handleCanPlay);
+    }
+  }, []);
   return (
     <div className={styles.container}>
       {/* video and promotion section */}
+      {/* video and promotion section */}
       <div className={styles.home_companion}>
-        {/* Main header */}
-        <h1 className={styles.header_bold}>
-          Find Your Perfect Companion
-        </h1>
+        {/* Video background */}
+        <video 
+          ref={videoRef}
+          autoPlay 
+          loop 
+          muted 
+          className={styles.video_background}
+        >
+          <source src={video} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
 
-        {/* Sub header */}
-        <h3 className={styles.sub_header}>
-          Give a loving home to a pet in need. Our adoption process makes it easy to find your perfect match.
-        </h3>
+        {/* Content overlay */}
+        <div className={styles.companion_content}>
+          {/* Main header */}
+          <h1 className={styles.header_bold}>
+            Find Your Perfect Companion
+          </h1>
 
-        {/* Action buttons - Adopt and Re-home */}
-        <div className={styles.companion_btn}>
-          <Link to="/adopt" className={styles.adopt_companion}>
-            Adopt Now
-          </Link>
+          {/* Sub header */}
+          <h3 className={styles.sub_header}>
+            Give a loving home to a pet in need. Our adoption process makes it easy to find your perfect match.
+          </h3>
 
-          <button className={styles.rehome_companion}>
-            Re-home
-          </button>
+          {/* Action buttons - Adopt and Re-home */}
+          <div className={styles.companion_btn}>
+            <Link to="/adopt" className={styles.adopt_companion}>
+              Adopt Now
+            </Link>
+            
+            <Link to="/adopt/add-pet" className={styles.adopt_companion}>
+              Re-home
+            </Link>
+          </div>
         </div>
-
       </div>
 
 
@@ -170,7 +230,7 @@ const Home = () => {
               Fill out our adoption application form with your details and preferences.
             </p>
             
-            <Link to="#" className={styles.care_link}>
+            <Link to="/care-tips" className={styles.care_link}>
             Learn More <FontAwesomeIcon icon={faArrowRight} />
             </Link>
           </div>
@@ -188,7 +248,7 @@ const Home = () => {
               Fill out our adoption application form with your details and preferences.
             </p>
 
-            <Link to="#" className={styles.care_link}>
+            <Link to="/care-tips" className={styles.care_link}>
             Learn More <FontAwesomeIcon icon={faArrowRight} />
             </Link>
           </div>
@@ -207,7 +267,7 @@ const Home = () => {
               Fill out our adoption application form with your details and preferences.
             </p>
 
-            <Link to="#" className={styles.care_link}>
+            <Link to="/care-tips" className={styles.care_link}>
             Learn More <FontAwesomeIcon icon={faArrowRight} />
             </Link>
           </div>
@@ -270,23 +330,16 @@ const Home = () => {
       <div className={styles.contact_nav}>
         <div className={styles.contact_us}>
           <h2 className={styles.c_header}>Contact Us</h2>
-          <form action="https://api.web3forms.com/submit" method="POST" className={styles.project_info}>
-            <input type="hidden" name="access_key" value="d352b78b-8cfa-4e9a-8359-aa41e72e70f3" />
+          <form ref={form} onSubmit={sendEmail} className={styles.contact_info}>
           
-            <label htmlFor="Fname">First Name :</label>
-            <input type="text" id="fname" name="fname" required />
-
-            <label htmlFor="Mname">Midde Name (optional):</label>
-            <input type="text" id="mname" name="fname" />
-
-            <label htmlFor="Lname">Last Name :</label>
-            <input type="text" id="lname" name="fname" required />
+            <label htmlFor="name">Name :</label>
+            <input type="text" id="name" name="name" required />
 
             <label htmlFor="email">Email Id :</label>
-            <input type="email" id="email" name="fname" required />
+            <input type="email" id="email" name="email" placeholder={user?.email || ""} defaultValue={user?.email || ""} required />
 
             <label htmlFor="phone">Phone no. :</label>
-            <input type="phone" id="phone" name="fname" required />
+            <input type="phone" id="phone" name="phone" required />
             
             <label htmlFor="message">Message :</label>
             <textarea type="text" id="msg" name="msg" required />
@@ -301,15 +354,7 @@ const Home = () => {
           <h2 className={styles.v_header}>
             Visit our Office
           </h2>
-          
-          <p className={styles.v_info}><FontAwesomeIcon icon={faMapMarkerAlt} className={styles.FAI} />  123 Pet Street, Animal City, AC 12345</p>
-          <p className={styles.v_info}><FontAwesomeIcon icon={faPhone} className={styles.FAI} />  123-456-7890</p>
-          <p className={styles.v_info}><FontAwesomeIcon icon={faEnvelope} className={styles.FAI} />  abc@gmail.com</p>
-
-          <div className={styles.map}>
-            {/* API connection needed */}
-          </div>
-
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3573.6174384764386!2d75.87194517622035!3d26.403544476954327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfc0c282ffffff%3A0x4776f298b0f0587e!2sBanasthali%20Vidyapith!5e0!3m2!1sen!2sin!4v1743691700578!5m2!1sen!2sin" allowFullScreen="" className={styles.map} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
 

@@ -111,8 +111,25 @@ const getAllPets = async (req, res) => {
         });
     }
 };
+// Add this new controller method
+const getPetById = async (req, res) => {
+    try {
+        const pet = await Pet.findOne({ pid: req.params.id });
+        if (!pet) {
+            return res.status(404).json({ message: "Pet not found" });
+        }
+        res.status(200).json(pet);
+    } catch (err) {
+        console.error("Error fetching pet:", err);
+        res.status(500).json({ 
+            message: "Error fetching pet", 
+            error: err.message 
+        });
+    }
+};
 
 module.exports = { 
     addPet,
-    getAllPets  // Export the new function
+    getAllPets,
+    getPetById  // Add this to your exports
 };

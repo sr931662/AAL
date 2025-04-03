@@ -1,13 +1,16 @@
 .foot {
     bottom: 0;
     height: 50vh;
-    width: 100%;
+    width: 100vw;
     background-color: rgb(17 24 39);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas: ". . . .";
 }
 
+.logo_phrase {
+    color: rgb(226, 226, 226);
+}
 .batch {
     padding: 50px 50px;
     font-size: 18px;
@@ -22,6 +25,7 @@
     color: white;
     font-size: 27px;
     font-weight: 500;
+    margin-bottom: 30px;
 }
 
 .links {
@@ -52,4 +56,69 @@
     text-transform: uppercase;
     font-size: 20px;
     font-weight: 700;
+}
+
+
+/* For tablets and smaller desktops (991px and below) */
+@media (max-width: 991px) {
+  .foot {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2rem 1rem;
+  }
+  
+  .batch {
+    padding: 1rem;
+  }
+  
+  .foot_headers {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* For smaller tablets (768px and below) */
+@media (max-width: 768px) {
+  .foot {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  
+  .foot_logo {
+    height: 60px;
+  }
+  
+  .logo_phrase {
+    font-size: 0.9rem;
+  }
+}
+
+/* For mobile devices (496px and below) */
+@media (max-width: 496px) {
+  .foot {
+    grid-template-columns: 1fr;
+    padding: 1.5rem 1rem;
+    gap: 1rem;
+  }
+  
+  .batch {
+    padding: 0.5rem;
+    text-align: center;
+  }
+  
+  .foot_logo {
+    height: 50px;
+    margin: 0 auto;
+  }
+  
+  .links {
+    justify-items: center;
+  }
+  
+  .foot_headers {
+    font-size: 1.2rem;
+  }
+  
+  .link {
+    font-size: 0.9rem;
+  }
 }

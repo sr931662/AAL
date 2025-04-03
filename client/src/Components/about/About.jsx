@@ -17,11 +17,6 @@ const About = () => {
                     Learn about our mission, values, and the dedicated team working to connect loving homes with pets in need.
                     </p>
 
-                    <Link>
-                        <button className={styles.meet_team}>
-                            Meet Our Team
-                        </button>
-                    </Link>
                 </div>
 
                 <div className={styles.header2}>
@@ -66,12 +61,12 @@ const About = () => {
 
                 <div className={styles.impact_container}>
                     <div className={styles.impact_card}>
-                        <h2 className={styles.impact_value}>2500+</h2>
+                        <h2 className={styles.impact_value}>250+</h2>
                         <p className={styles.impact_state}>Pets Rescued</p>
                     </div>
 
                     <div className={styles.impact_card}>
-                        <h2 className={styles.impact_value}>5000+</h2>
+                        <h2 className={styles.impact_value}>500+</h2>
                         <p className={styles.impact_state}>Pets Adopted</p>
                     </div>
 
@@ -82,50 +77,14 @@ const About = () => {
                     </div>
 
                     <div className={styles.impact_card}>
-                        <h2 className={styles.impact_value}>10000+</h2>
+                        <h2 className={styles.impact_value}>1000+</h2>
                         <p className={styles.impact_state}>Volunteer Hours</p>
 
                     </div>
                 </div>
             </div>
 
-            <div className={styles.cause}>
-                <h1 className={styles.cause_header}>Join Our Cause</h1>
-                <p className={styles.cause_info}>Whether you're looking to adopt, volunteer, or donate, there are many ways to support our mission of finding loving homes for pets in need.</p>
-                <div className={styles.cause_container}>
-                    <div className={styles.cause_card}>
-                        <h2 className={styles.cause_h2}>
-                            Volunteer With Us
-                        </h2>
-
-                        <p className={styles.cause_p}>
-                            We're always looking for dedicated volunteers to help with animal care, events, and administration.
-                        </p>
-
-                        <Link to="#" className={styles.cause_link}>
-                            <button className={styles.cause_btn}>
-                                Learn More
-                            </button>
-                        </Link>
-                    </div>
-
-                    <div className={styles.cause_card}>
-                        <h2 className={styles.cause_h2}>
-                            Make a Donation
-                        </h2>
-
-                        <p className={styles.cause_p}>
-                            Your support helps us provide food, shelter, and medical care to animals in need.
-                        </p>
-
-                        <Link to="#" className={styles.cause_link}>
-                            <button className={styles.cause_btn}>
-                                Learn More
-                            </button>
-                        </Link>
-                    </div>
-                </div>
-            </div>
+            
         </div>
   )
 }

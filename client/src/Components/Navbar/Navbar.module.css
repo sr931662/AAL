@@ -1,129 +1,296 @@
-/* body {
-    font-family: sans-serif;
-} */
-
+/* Base Styles */
 .header {
-    height: 64px;
-    position: fixed;
-    width: 100vw;
-    top: 0;
-    z-index: 5;
-    display: flex;
-    justify-content: space-between;
-    font-size: 18px;
-    /* margin-bottom: 12.5px; */
-    padding-left: 20px;
-    padding-right: 20px;
-    align-items: center;
+  height: 64px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  padding-left: 20px;
+  padding-right: 20px;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .menu {
-    display: flex;
-    gap: 10px;
-    margin-right: 40px;
+  display: flex;
+  gap: 10px;
+  margin-right: 40px;
+  align-items: center;
 }
 
 .menu_link {
-    text-decoration: solid;
-    color: rgb(27 154 245);
-    border-radius: 30px;
-    font-size: 16px;
-    padding: 8px 20px;
-    font-family: 'Montserrat';
+  text-decoration: solid;
+  color: rgb(27 154 245);
+  border-radius: 30px;
+  font-size: 16px;
+  padding: 8px 20px;
+  font-family: 'Montserrat';
 }
-
 
 .regular_links {
-    color: rgb(27 154 245);
-    font-size: 16px;
-    text-decoration: none;
-    /* padding: 10px 20px; */
-    position: relative;
-    display: inline-block;
-    transition: all 0.3s ease;
-  }
-  
-  .regular_links:hover {
-    transform: translateY(-1px);
-  }
-  
-  .regular_links::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    bottom: -1px;
-    left: 0;
-    right: 0;
-    height: 5px;
-    background-color: rgb(27 154 245);
-    transform: scaleY(0);
-    transform-origin: bottom;
-    transition: transform 0.3s ease;
-  }
-  
-  .regular_links:hover::before {
-    transform: scaleY(1);
-  }
+  color: rgb(27 154 245);
+  font-size: 16px;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
 
-  /* Add some padding/margin to the user name and logout button */
-  .user_name {
-    color: #fff;
-    font-size: 16px;
-    margin-right: 20px;
-  }
-  
-  .logout_btn {
-    background-color: #f44336;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 14px;
-    margin-left: 20px;
-  }
-  
-  .logout_btn:hover {
-    background-color: #d32f2f;
-  }
-  
+.regular_links:hover {
+  transform: translateY(-1px);
+}
+
+.regular_links::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background-color: rgb(27 154 245);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s ease;
+}
+
+.regular_links:hover::before {
+  transform: scaleY(1);
+}
+
+.user_name {
+  color: #333;
+  font-size: 16px;
+  margin-right: 20px;
+}
+
+.logout_btn {
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.logout_btn:hover {
+  background-color: #d32f2f;
+}
 
 .sign_up_link {
-    background-color: rgb(27 154 245);
-    color: white;
+  background-color: rgb(27 154 245);
+  color: white;
+  border-radius: 4px;
+  padding: 8px 16px;
+  transition: background-color 0.3s;
 }
 
-.search {
+.sign_up_link:hover {
+  background-color: #1a8fd8;
+}
+
+/* Mobile Menu Styles */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: rgb(27 154 245);
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.mobileMenu {
+  display: none;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+  z-index: 99;
+}
+
+.mobileMenuOpen {
+  transform: translateY(0);
+}
+
+.mobileLink {
+  color: rgb(27 154 245);
+  text-decoration: none;
+  padding: 12px 0;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+
+.mobileLink:hover {
+  background-color: #f0f8ff;
+}
+
+.mobileUser {
+  color: #333;
+  padding: 12px 0;
+  font-size: 16px;
+}
+
+.mobileLogout {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  margin: 10px 0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 80%;
+  max-width: 200px;
+}
+
+.mobileSignUp {
+  background-color: rgb(27 154 245);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  margin: 10px 0;
+  font-size: 16px;
+  width: 80%;
+  max-width: 200px;
+  text-align: center;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .menu {
+      display: none;
+  }
+  
+  .hamburger {
+      display: block;
+  }
+  
+  .mobileMenu {
+      display: flex;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .mobileMenu {
+      display: none !important;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .header {
+      font-size: 14px;
+  }
+  
+  .menu_link {
+      padding: 8px 12px;
+      font-size: 14px;
+  }
+  
+  .user_name {
+      margin-right: 10px;
+      font-size: 14px;
+  }
+}/* Base Styles */
+
+
+/* Desktop Menu - always visible on desktop */
+.desktopMenu {
     display: flex;
-    gap: 1vw;
 }
 
-.searchBox {
-    height: 40px;
-    width: 35vw;
-    border-radius: 20px;
-    border-color: rgb(27 154 245);
-    color: rgb(27 154 245);
-    font-size: 18px;
+/* Mobile Menu - hidden by default */
+.mobileMenu {
+    display: none;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    background-color: #f4f1f1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    z-index: 99;
 }
-.user_name {
-  color: black;
+
+/* When menu is open */
+.mobileMenuOpen {
+    display: flex;
+    animation: slideDown 0.3s ease-out;
 }
-.searchBtn {
-    padding: 10px 20px;
-    background-color: transparent;
-    color: rgb(27 154 245);
-    text-transform: uppercase;
-    font-family: 'Montserrat';
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Hamburger menu - hidden on desktop */
+.hamburger {
+    display: none;
+    background: none;
     border: none;
-    font-size: 18px;
-    border-radius: 50px;
-    font-weight: 900;
+    color: rgb(27 154 245);
+    font-size: 24px;
     cursor: pointer;
-    margin-left: 20px;
-    transition: all ease-in-out 0.25s;
+    z-index: 100;
+    padding: 30px;
+    
 }
-.searchBtn:hover {
-    background-color: rgb(27 154 245);
-    color: white;
+
+/* Mobile Menu Links */
+.mobileLink {
+    color: rgb(27 154 245);
+    text-decoration: none;
+    padding: 12px 0;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.mobileLink:hover {
+    background-color: #f0f8ff;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .desktopMenu {
+        display: none;
+    }
+    
+    .hamburger {
+        display: block;
+    }
+    
+    .mobileMenu {
+        display: none;
+    }
+    
+    /* Only show mobile menu when isMenuOpen is true */
+    .mobileMenuOpen {
+        display: flex;
+    }
 }

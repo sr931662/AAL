@@ -114,7 +114,6 @@ const Caretips = () => {
                 <div className={styles.head_left}>
                     <h1 className={styles.header}>Expert Pet Care Guide & Tips</h1>
                     <h2 className={styles.header_main}>Everything you need to know about caring for your furry friends.</h2>
-                    <button className={styles.paw_btn}><FontAwesomeIcon icon={faPaw} /> Get Started</button>
                 </div>
                 <div className={styles.head_right}>
                     <img src={pet_care} alt="" className={styles.hero_img} />

@@ -127,9 +127,6 @@ const Adopt = () => {
                     <p className={styles.head_info}>
                         Every pet deserves a loving home. Browse through our available pets and give them a second chance at happiness.
                     </p>
-                        <Link to='/adopt/add-pet'>
-                            <button className={styles.meet_team}>Add Pet</button>
-                        </Link>
                 </div>
                 <div className={styles.header2}>
                     <img src={about1} alt='Pet playing Around' className={styles.about_img_1} />
@@ -202,9 +199,9 @@ const Adopt = () => {
                                     <FontAwesomeIcon icon={faHeart} />
                                     <span>{pet.likes || 0} likes</span>
                                 </div>
-                                <button className={styles.learn}>
+                                <Link to={`/pets/${pet.pid}`} className={styles.learn}>
                                     Learn More
-                                </button>
+                                </Link>
                             </div>
                         </div>
                     ))}

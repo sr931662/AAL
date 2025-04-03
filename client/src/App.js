@@ -11,10 +11,10 @@ import Caretips from './Components/caretips/caretips';
 import SignupForm from './Components/SignupPage/SignupForm';
 import Logout from './Components/LoginPage/Logout';
 import AddPet from './Components/AdoptPage/AddPets/addpet';
-import PetCareAppointment from "./Components/appointments/PetCareAppointment"
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useAuth } from '../src/store/auth'; // Assuming you have an AuthContext
+import PetDetailPage from './Components/AdoptPage/petcards/petDetailPage';
 
 const useScrollToTop = () => {
   const { pathname } = useLocation();
@@ -36,7 +36,7 @@ function App() {
         <Route exact path="/login" element={<LoginPage />} />
         <Route exact path="/logout" element={<Logout />} />
         <Route exact path="/adopt/add-pet" element={<AddPet />} />
-        <Route exact path="/adopt/book-app" element={<PetCareAppointment />} />
+        <Route exact path="/pets/:id" element={<PetDetailPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

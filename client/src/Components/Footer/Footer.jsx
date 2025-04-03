@@ -16,20 +16,17 @@ const Footer = () => {
       <div className={styles.batch}>
         <h2 className={styles.foot_headers}>Quick Links</h2>
         <div className={styles.links}>
+          <Link to="/" className={styles.link}>
+            Home
+          </Link>
           <Link to="/about-us" className={styles.link}>
             About us
           </Link>
           <Link to="/adopt" className={styles.link}>
             Adopt
           </Link>
-          <Link to="/products" className={styles.link}>
-            Products
-          </Link>
           <Link to="/care-tips" className={styles.link}>
             Care Tips
-          </Link>
-          <Link to="/contact-us" className={styles.link}>
-            Contact us
           </Link>
         </div>
 
@@ -37,12 +34,16 @@ const Footer = () => {
 
       
       <div className={styles.batch}>
-      <h2 className={styles.foot_headers}>Newsletter</h2>
-        <input type="email" placeholder='Enter your email id...' className={styles.news} />
-
-        <button type='submit' className={styles.foot_btn}>
-          Subscribe
-        </button>
+      <h2 className={styles.foot_headers}>Office Info.</h2>
+        <h4 className={styles.link}>
+          123 Pet Street, Animal City, AC 12345
+        </h4>
+        <h4 className={styles.link}>
+          123-456-7890
+        </h4>
+        <h4 className={styles.link}>
+          abc@gmail.com
+        </h4>
       </div>
     </div>
   )
