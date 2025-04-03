@@ -112,11 +112,11 @@ const Caretips = () => {
         <div className={styles.caretip_container}>
             <div className={styles.header_card}>
                 <div className={styles.head_left}>
-                    <h1 className={styles.header}>Expert Pet Care Guide & Tips</h1>
-                    <h2 className={styles.header_main}>Everything you need to know about caring for your furry friends.</h2>
+                    <img src={pet_care} alt="" className={styles.hero_img} />
                 </div>
                 <div className={styles.head_right}>
-                    <img src={pet_care} alt="" className={styles.hero_img} />
+                    <h1 className={styles.header}>Expert Pet Care Guide & Tips</h1>
+                    <h2 className={styles.header_main}>Everything you need to know about caring for your furry friends.</h2>
                 </div>
             </div>
 

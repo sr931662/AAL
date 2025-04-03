@@ -47,10 +47,11 @@
 
 .head_right {
     margin: auto;
+    padding: 30px;
 }
 
 .hero_img {
-    padding-right: 10px;
+    /* padding-right: 10px; */
     border-radius: 20px;
     width: 100%;
 }
@@ -59,6 +60,8 @@
     max-width: 1140px;
     margin-left: auto;
     margin-right: auto;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .pet_choice {
@@ -235,6 +238,31 @@
         align-content: center;
     }
     
+    .is01 {
+        background: white;
+        padding: 10px;
+        height: auto;
+        border-radius: 20px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    }
+}
+
+@media screen and (max-width: 496px) {
+    .info_set_1 {
+        margin-bottom: 100px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5vh 5vw;
+        align-content: center;
+    }
+    .header_card {
+        margin-top: 64px;
+        height: 60vh;
+        width: 100vw;
+        background-color: #1ca7f7;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
     .is01 {
         background: white;
         padding: 10px;
