@@ -9,7 +9,7 @@ connectDB()
 
 const corsOptions = {
     // origin: "http://localhost:3000",
-    origin: "https://aal-neon.vercel.app",
+    origin: ["https://aal-neon.vercel.app", "http://localhost:3000"],
     methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
     credentials: true,
 };

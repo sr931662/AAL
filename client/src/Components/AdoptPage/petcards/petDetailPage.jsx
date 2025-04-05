@@ -11,11 +11,26 @@ const PetDetailPage = () => {
     const [error, setError] = useState(null);
     const [emailSent, setEmailSent] = useState(false);
     const [emailError, setEmailError] = useState(null);
+    // const [formData, setFormData] = useState({
+    //     name: '',
+    //     email: '',
+    //     phone: '',
+    //     message: ''
+    // });
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         phone: '',
-        message: ''
+        address: '',
+        housing: '',
+        ownOrRent: '',
+        landlord: '',
+        petExperience: '',
+        previousPets: '',
+        vet: '',
+        message: '',
+        schedule: '',
+        agreeTerms: false
     });
     const [showForm, setShowForm] = useState(false);
     const navigate = useNavigate();
