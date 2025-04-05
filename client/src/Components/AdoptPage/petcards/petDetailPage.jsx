@@ -11,7 +11,19 @@ const PetDetailPage = () => {
     const [error, setError] = useState(null);
     const [emailSent, setEmailSent] = useState(false);
     const [emailError, setEmailError] = useState(null);
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
+    });
+    const [showForm, setShowForm] = useState(false);
     const navigate = useNavigate();
+
+    // Initialize EmailJS once when component mounts
+    useEffect(() => {
+        emailjs.init('enKl3zRd23Mfn39ZU'); // Replace with your actual EmailJS public key
+    }, []);
 
     useEffect(() => {
         const fetchPet = async () => {
@@ -28,30 +40,63 @@ const PetDetailPage = () => {
         fetchPet();
     }, [id]);
 
-    const handleAdoptClick = async () => {
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    };
+
+    const handleAdoptClick = async (e) => {
+        e.preventDefault();
+        
+        if (!showForm) {
+            setShowForm(true);
+            return;
+        }
+
         try {
-            // Initialize EmailJS with your user ID
-            emailjs.init('vidushitrivedi279@gmail.com');
-            
+            // Validate form
+            if (!formData.name || !formData.email) {
+                setEmailError('Name and email are required');
+                return;
+            }
+
+            // Validate email format
+            if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+                setEmailError('Please enter a valid email address');
+                return;
+            }
+
             // Send the email
-            const response = await emailjs.send(
-                'service_6c2jgbd',  // Your EmailJS service ID
-                'template_khm633q', // Your EmailJS template ID
+            const result = await emailjs.send(
+                'service_6c2jgbd',  // Replace with your EmailJS service ID
+                'template_khm633q', // Replace with your EmailJS template ID
                 {
                     pet_name: pet.pname,
                     pet_type: pet.ptype,
                     pet_age: pet.age,
                     pet_gender: pet.gender,
                     shelter_location: pet.shelter_loc,
-                    to_email: 'vidushitrivedi279@gmail.com', // Your email address
-                    reply_to: 'USER_EMAIL@EXAMPLE.COM' // You might want to collect this from a form
+                    to_email: 'vidushitrivedi279@gmail.com', // Shelter's email
+                    from_name: formData.name,
+                    from_email: formData.email,
+                    phone: formData.phone,
+                    message: formData.message || `I'm interested in adopting ${pet.pname}!`,
+                    reply_to: formData.email
                 }
             );
             
-            setEmailSent(true);
+            if (result.status === 200) {
+                setEmailSent(true);
+                setEmailError(null);
+            } else {
+                throw new Error('Failed to send email');
+            }
         } catch (err) {
             console.error('Failed to send email:', err);
-            setEmailError('Failed to send adoption interest email. Please try again later.');
+            setEmailError(err.message || 'Failed to send adoption interest. Please try again later.');
         }
     };
 
@@ -77,7 +122,7 @@ const PetDetailPage = () => {
             <div className={styles.content}>
                 <div className={styles.imageContainer}>
                     <img 
-                        src={pet.pimage} 
+                        src={pet.pimage || '/default-pet.jpg'} 
                         alt={pet.pname}
                         onError={(e) => {
                             e.target.src = '/default-pet.jpg';
@@ -87,10 +132,10 @@ const PetDetailPage = () => {
 
                 <div className={styles.details}>
                     <div className={styles.status}>
-                        <span className={styles.vaccination} data-status={pet.v_status}>
+                        <span className={`${styles.statusTag} ${pet.v_status === 'Vaccinated' ? styles.vaccinated : styles.notVaccinated}`}>
                             {pet.v_status}
                         </span>
-                        <span className={styles.training} data-status={pet.t_status}>
+                        <span className={`${styles.statusTag} ${pet.t_status === 'Trained' ? styles.trained : styles.notTrained}`}>
                             {pet.t_status}
                         </span>
                     </div>
@@ -102,18 +147,72 @@ const PetDetailPage = () => {
 
                     <div className={styles.infoSection}>
                         <h3>About</h3>
-                        <p>This {pet.ptype.toLowerCase()} is looking for a loving home!</p>
+                        <p>{pet.description || `This ${pet.ptype.toLowerCase()} is looking for a loving home!`}</p>
                     </div>
 
-                    <button 
-                        className={styles.adoptButton}
-                        onClick={handleAdoptClick}
-                        disabled={emailSent}
-                    >
-                        {emailSent 
-                            ? `Email Sent About ${pet.pname}!` 
-                            : `Interested in Adopting ${pet.pname}?`}
-                    </button>
+                    {!emailSent ? (
+                        <>
+                            {showForm && (
+                                <form className={styles.adoptionForm}>
+                                    <div className={styles.formGroup}>
+                                        <label htmlFor="name">Your Name *</label>
+                                        <input
+                                            type="text"
+                                            id="name"
+                                            name="name"
+                                            value={formData.name}
+                                            onChange={handleInputChange}
+                                            required
+                                        />
+                                    </div>
+                                    <div className={styles.formGroup}>
+                                        <label htmlFor="email">Email *</label>
+                                        <input
+                                            type="email"
+                                            id="email"
+                                            name="email"
+                                            value={formData.email}
+                                            onChange={handleInputChange}
+                                            required
+                                        />
+                                    </div>
+                                    <div className={styles.formGroup}>
+                                        <label htmlFor="phone">Phone</label>
+                                        <input
+                                            type="tel"
+                                            id="phone"
+                                            name="phone"
+                                            value={formData.phone}
+                                            onChange={handleInputChange}
+                                        />
+                                    </div>
+                                    <div className={styles.formGroup}>
+                                        <label htmlFor="message">Message</label>
+                                        <textarea
+                                            id="message"
+                                            name="message"
+                                            value={formData.message}
+                                            onChange={handleInputChange}
+                                            placeholder={`Tell us why you'd be a good fit for ${pet.pname}`}
+                                        />
+                                    </div>
+                                </form>
+                            )}
+                            
+                            <button 
+                                className={styles.adoptButton}
+                                onClick={handleAdoptClick}
+                            >
+                                {showForm 
+                                    ? 'Submit Adoption Interest' 
+                                    : `Interested in Adopting ${pet.pname}?`}
+                            </button>
+                        </>
+                    ) : (
+                        <div className={styles.successMessage}>
+                            Thank you! Your adoption interest for {pet.pname} has been sent.
+                        </div>
+                    )}
                     
                     {emailError && <div className={styles.error}>{emailError}</div>}
                 </div>
