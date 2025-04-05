@@ -24,7 +24,7 @@ const Login = () => {
     }
 
     try {
-      const response = await axios.post('https://aal-server.vercel.app/api/auth/login', {
+      const response = await axios.post('http://localhost:3005/api/auth/login', {
         email,
         pass,
       });
