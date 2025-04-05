@@ -89,3 +89,9 @@ app.get("/send-email", (req, res) => {
 // })
 
 module.exports.handler = serverless(app); // Add this for Vercel
+
+
+  // "scripts": {
+    // "start": "nodemon server.js",
+    // "test": "echo \"Error: no test specified\" && exit 1"
+  // },
