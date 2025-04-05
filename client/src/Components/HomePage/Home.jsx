@@ -223,11 +223,10 @@ const Home = () => {
             </div>
             
             <p className={styles.Care_head}>
-              1. Application
+              1. Provide a Balanced Diet
             </p>
 
-            <p className={styles.Care_info}>
-              Fill out our adoption application form with your details and preferences.
+            <p className={styles.Care_info}>Ensure your pet gets nutritious food suited to their species and age. Fresh water, vitamins, and portion control are essential for a healthy life.
             </p>
             
             <Link to="/care-tips" className={styles.care_link}>
@@ -242,10 +241,10 @@ const Home = () => {
               <FontAwesomeIcon icon={faBone} className={styles.fa_icon} />
             </div>
             <p className={styles.Care_head}>
-              2. Home Check
+              2. Regular Exercise & Playtime
             </p>
             <p className={styles.Care_info}>
-              Fill out our adoption application form with your details and preferences.
+            Engage your pet in daily activities like walks, fetch, or interactive toys. Exercise keeps them physically fit, mentally stimulated, and helps prevent obesity.
             </p>
 
             <Link to="/care-tips" className={styles.care_link}>
@@ -261,10 +260,10 @@ const Home = () => {
             </div>
             
             <p className={styles.Care_head}>
-              3. Meet & Greet
+              3. Routine Vet Checkups
             </p>
             <p className={styles.Care_info}>
-              Fill out our adoption application form with your details and preferences.
+            Schedule regular vet visits to monitor health, vaccinations, and early detection of diseases. Preventive care extends your pet’s lifespan and ensures their well-being.
             </p>
 
             <Link to="/care-tips" className={styles.care_link}>

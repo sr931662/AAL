@@ -11,7 +11,7 @@
     grid-template-columns: 1fr 1fr;
 }
 
-.head_left {
+.head_right {
     padding: 20px;
     margin-top: auto;
     margin-bottom: auto;
@@ -45,7 +45,7 @@
     transform: scale(1.05);
 }
 
-.head_right {
+.head_left {
     margin: auto;
     padding: 30px;
 }

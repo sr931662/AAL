@@ -1,7 +1,7 @@
 .foot {
     bottom: 0;
     height: auto;
-    width: 100vw;
+    width: auto;
     background-color: rgb(17 24 39);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;

@@ -196,6 +196,7 @@
 @media screen and (max-width: 991px) {
   .header {
       font-size: 14px;
+      width: 100%;
   }
   
   .menu_link {
