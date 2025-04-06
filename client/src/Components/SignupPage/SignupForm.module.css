@@ -1,134 +1,225 @@
 .container {
-    width: 100%;
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  padding: 2rem;
+}
+
+.formContainer {
+  flex: 1;
+  max-width: 800px;
+  background: white;
+  border-radius: 16px;
+  padding: 3rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.title {
+  font-size: 2rem;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: #64748b;
+  font-size: 1rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.nameFields {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.passwordFields {
+  display: grid;
+  width: auto;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+}
+
+.addressGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+label {
+  font-size: 0.875rem;
+  color: #475569;
+  font-weight: 500;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  background-color: white;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+}
+
+.termsGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.checkbox {
+  width: 1rem;
+  height: 1rem;
+  accent-color: #6366f1;
+}
+
+.termsLabel {
+  font-size: 0.875rem;
+  color: #475569;
+  font-weight: 400;
+}
+
+.termsLink {
+  color: #6366f1;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.termsLink:hover {
+  text-decoration: underline;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 1rem;
+  background-color: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.submitButton:hover {
+  background-color: #4f46e5;
+}
+
+.loginPrompt {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: #64748b;
+  font-size: 0.875rem;
+}
+
+.loginLink {
+  color: #6366f1;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.loginLink:hover {
+  text-decoration: underline;
+}
+
+.illustration {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    padding: 4rem;
+  }
+  
+  .formContainer {
     max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 50px;
-    margin-top: 10vh;
-    padding: 20px;
-    text-align: center;
-    background: #f9f9f9;
-    border-radius: 10px;
+    margin: 0;
   }
   
-  h2 {
-    margin-bottom: 5px;
+  .illustration {
+    display: block;
+    flex: 1;
+    max-width: 500px;
   }
   
-  p {
-    margin-bottom: 20px;
-    color: #666;
-    font-size: 14px;
-  }
-  
-  .form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .inputGroup {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-  
-  input, select {
+  .illustrationImage {
     width: 100%;
-    font-size: 14px;
-    height: 25px;
-    margin-top: auto;
-    margin-bottom: auto;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
   }
+}
 
-  .select {
-    height: 15px;
-  }
-  label {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-size: 14px;
+@media (max-width: 768px) {
+  .nameFields,
+  .passwordFields,
+  .addressGrid {
+    grid-template-columns: 1fr;
   }
   
-  .fullWidth {
-    width: 100%;
-    margin-bottom: 10px;
+  .container {
+    padding: 1rem;
   }
   
-  .checkboxGroup, .radioGroup {
-    display: flex;
-    margin-top: auto;
-    margin-bottom: auto;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 10px;
+  .formContainer {
+    padding: 2rem;
   }
-  
-  .terms {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    font-size: 14px;
-    align-items: center;
-    gap: 5px;
-    margin-bottom: 10px;
-  }
-  
-  .submitButton {
-    width: 100%;
-    padding: 10px;
-    background: #00bcd4;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .socialLogin {
-    margin-top: 10px;
-  }
-  
-  .socialIcons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .name_section {
-    justify-content: center;
-    display: flex;
-    gap: 20px;
-  }
-  
-  .login_btn {
-    background-color: rgb(97, 174, 223);
-    border-radius: 20px;
-    padding: 10px 30px;
-    border: none;
-    color: white;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all 0.5s ease-in-out;
-  }
-
-  .login_btn:hover {
-    color: rgb(42, 125, 176);
-    background: white;
-  }
-
-  .google, .facebook, .apple {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .google { background: #db4437; color: white; }
-  .facebook { background: #4267b2; color: white; }
-  .apple { background: black; color: white; }
-  
+}

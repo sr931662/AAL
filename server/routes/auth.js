@@ -12,7 +12,7 @@ router.route("/login").post(authController.login)
 
 router.route("/sign-up").post(validate(signupSchema), authController.register)
 
-router.route("/user").get(authMiddleware, authController.getAllUsers)
+router.route("/users").get(authMiddleware, authController.getAllUsers)
 
 // Route to add a new pet
 router.route('/add-pet').post(petController.addPet);

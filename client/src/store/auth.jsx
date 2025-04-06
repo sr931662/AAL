@@ -1,159 +1,127 @@
-
 import { createContext, useContext, useEffect, useState } from "react";
 
 export const AuthContext = createContext();
 
+// Helper function for safe localStorage operations
+const safeGetItem = (key) => {
+  try {
+    const item = localStorage.getItem(key);
+    return item ? JSON.parse(item) : null;
+  } catch (error) {
+    console.error(`Error reading ${key} from localStorage:`, error);
+    return null;
+  }
+};
+
+const safeSetItem = (key, value) => {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+    return true;
+  } catch (error) {
+    console.error(`Error writing ${key} to localStorage:`, error);
+    return false;
+  }
+};
+
 export const AuthProvider = ({ children }) => {
-    const [token, setToken] = useState(localStorage.getItem("token") || "");
-    const [user, setUser] = useState(null);
+  const [token, setToken] = useState("");
+  const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-    // Function to store token in local storage
-    const storeTokenInLS = (serverToken, userInfo) => {
-        setToken(serverToken);
-        localStorage.setItem("token", serverToken);
-        localStorage.setItem("user", JSON.stringify(userInfo));
+  // Initialize auth state
+  useEffect(() => {
+    const initializeAuth = async () => {
+      const storedToken = localStorage.getItem("token");
+      if (storedToken) {
+        setToken(storedToken);
+        await userAuthentication(storedToken);
+      }
+      setIsLoading(false);
     };
+    initializeAuth();
+  }, []);
 
-    // Check login status
-    const isLoggedIn = !!token;
-
-    // Logout function
-    const LogoutUser = () => {
-        localStorage.removeItem("token");
-        localStorage.removeItem("user");
-        setToken("");
-        setUser(null);
-      };
-
-    // Authenticate user and fetch user data using the stored token
-    const userAuthentication = async () => {
-        if (!token) return;
-
-        try {
-            const response = await fetch("http://localhost:3005/api/auth/user", {
-                method: "GET",
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    "Content-Type": "application/json",
-                },
-            });
-
-            if (response.ok) {
-                const data = await response.json();
-                setUser(data.userInfo); // Ensure the role is included in userInfo
-            } else {
-                console.error("Error fetching user data");
-                LogoutUser();
-            }
-        } catch (error) {
-            console.error("Authentication error:", error);
-            LogoutUser();
-        }
-    };
-
-    // Load user from local storage on page load if token exists
-    useEffect(() => {
-        if (token) {
-            const storedUser = localStorage.getItem("user");
-            if (storedUser) {
-                setUser(JSON.parse(storedUser));
-            }
-        }
-    }, [token]); // Runs when token changes
-
-
-    useEffect(() => {
-        const storedToken = localStorage.getItem("token");
-        if (storedToken) {
-          setToken(storedToken); // Restore token on refresh
-          userAuthentication(); // Fetch user data again
-        }
-      }, []); // Empty dependency array = runs once on mount
-
-    useEffect(() => {
-        userAuthentication();
-    }, [token]); // Runs when token changes
-
-    return (
-        <AuthContext.Provider value={{ isLoggedIn, storeTokenInLS, LogoutUser, user }}>
-            {children}
-        </AuthContext.Provider>
-    );
-};
-export const useAuth = () => {
-    const authContextValue = useContext(AuthContext);
-    if (!authContextValue) {
-        throw new Error("useAuth used outside of the Provider");
+  // Store token and user info
+  const storeTokenInLS = (serverToken, userInfo) => {
+    if (!serverToken || !userInfo) {
+      console.error("Invalid token or user info provided");
+      return false;
     }
-    return authContextValue;
+
+    setToken(serverToken);
+    setUser(userInfo);
+    
+    localStorage.setItem("token", serverToken);
+    safeSetItem("user", userInfo);
+    
+    return true;
+  };
+
+  // Check login status
+  const isLoggedIn = !!token;
+
+  // Logout function
+  const LogoutUser = () => {
+    setToken("");
+    setUser(null);
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+  };
+
+  // Authenticate user
+  const userAuthentication = async (authToken = token) => {
+    if (!authToken) {
+      LogoutUser();
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:3005/api/auth/user", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      if (!data?.userInfo) {
+        throw new Error("Invalid user data received");
+      }
+
+      setUser(data.userInfo);
+      safeSetItem("user", data.userInfo);
+    } catch (error) {
+      console.error("Authentication error:", error);
+      LogoutUser();
+    }
+  };
+
+  // Provide auth context
+  return (
+    <AuthContext.Provider 
+      value={{ 
+        isLoggedIn, 
+        storeTokenInLS, 
+        LogoutUser, 
+        user,
+        isLoading
+      }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
-// export const AuthProvider = ({ children }) => {
-//     const [token, setToken] = useState(localStorage.getItem("token") || "");
-//     const [user, setUser] = useState(null);
-
-//     // Function to store token in local storage
-//     const storeTokenInLS = (serverToken, userInfo) => {
-//         setToken(serverToken);
-//         localStorage.setItem("token", serverToken);
-//         localStorage.setItem("user", JSON.stringify(userInfo));
-//     };
-
-//     // Check login status
-//     const isLoggedIn = !!token;
-
-//     // Logout function
-//     const LogoutUser = () => {
-//         setToken("");
-//         setUser(null);
-//         localStorage.removeItem("token");
-//         localStorage.removeItem("user");
-//     };
-
-//     // Authenticate user and fetch user data using the stored token
-//     const userAuthentication = async () => {
-//         if (!token) return;
-
-//         try {
-//             const response = await fetch("http://localhost:3005/api/auth/user", {
-//                 method: "GET",
-//                 headers: {
-//                     Authorization: `Bearer ${token}`,
-//                     "Content-Type": "application/json",
-//                 },
-//             });
-
-//             if (response.ok) {
-//                 const data = await response.json();
-//                 setUser(data.userInfo);
-//             } else {
-//                 console.error("Error fetching user data");
-//                 LogoutUser();
-//             }
-//         } catch (error) {
-//             console.error("Authentication error:", error);
-//             LogoutUser();
-//         }
-//     };
-
-//     // Load user from local storage on page load if token exists
-//     useEffect(() => {
-//         if (token) {
-//             const storedUser = localStorage.getItem("user");
-//             if (storedUser) {
-//                 setUser(JSON.parse(storedUser));
-//             }
-//         }
-//     }, [token]); // Runs when token changes
-
-//     useEffect(() => {
-//         userAuthentication();
-//     }, [token]); // Runs when token changes
-
-//     return (
-//         <AuthContext.Provider value={{ isLoggedIn, storeTokenInLS, LogoutUser, user }}>
-//             {children}
-//         </AuthContext.Provider>
-//     );
-// };
+export const useAuth = () => {
+  const authContextValue = useContext(AuthContext);
+  if (!authContextValue) {
+    throw new Error("useAuth must be used within an AuthProvider");
+  }
+  return authContextValue;
+};
 

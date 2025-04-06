@@ -8,7 +8,6 @@ const appointmentsRouter = require("./routes/appoint-router")
 connectDB()
 
 const corsOptions = {
-    // origin: "http://localhost:3000",
     origin: ["https://aal-neon.vercel.app", "http://localhost:3000"],
     methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
     credentials: true,
@@ -36,6 +35,7 @@ app.get("/sign-up", (req, res) => {
 app.get("/send-email", (req, res) => {
     res.status(200).send("Send Mail")
 })
+
 
 
 const PORT = 3005

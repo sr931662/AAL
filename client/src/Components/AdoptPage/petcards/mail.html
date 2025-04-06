@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Adoption Application for {{pet_name}}</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 0;
+        }
+        .header {
+            background-color: #4a90e2;
+            color: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+        .content {
+            padding: 25px;
+            background-color: #f9f9f9;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+        }
+        .footer {
+            padding: 15px;
+            text-align: center;
+            background-color: #f0f0f0;
+            border-radius: 0 0 8px 8px;
+            font-size: 12px;
+            color: #666;
+            border: 1px solid #ddd;
+            border-top: none;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .section-title {
+            color: #4a90e2;
+            border-bottom: 2px solid #e1e8ed;
+            padding-bottom: 8px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .detail-row {
+            display: flex;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        .detail-label {
+            font-weight: bold;
+            color: #555;
+            width: 200px;
+            min-width: 200px;
+        }
+        .detail-value {
+            flex: 1;
+            color: #333;
+        }
+        .action-button {
+            display: inline-block;
+            background-color: #4a90e2;
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            margin: 10px 5px;
+            font-weight: bold;
+            font-size: 15px;
+        }
+        .divider {
+            border-top: 1px solid #eee;
+            margin: 25px 0;
+        }
+        @media (max-width: 600px) {
+            .detail-label {
+                width: 100%;
+                margin-bottom: 5px;
+            }
+            .detail-value {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 style="margin:0;">New Adoption Application</h1>
+        <p style="margin:10px 0 0;font-size:18px;">For {{pet_name}} the {{pet_type}}</p>
+    </div>
+    
+    <div class="content">
+        <div class="card">
+            <h2 style="margin-top:0;">Applicant Information</h2>
+            <div class="detail-row">
+                <div class="detail-label">Full Name:</div>
+                <div class="detail-value">{{fullName}}</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Email:</div>
+                <div class="detail-value">{{email}}</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Phone:</div>
+                <div class="detail-value">{{phone}}</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Residence Type:</div>
+                <div class="detail-value">{{residenceType}}</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Landlord Permission:</div>
+                <div class="detail-value">{{landlordPermission}}</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="section-title">Household Information</h3>
+            <div class="detail-row">
+                <div class="detail-label">Adults in Home:</div>
+                <div class="detail-value">{{householdMembers}}</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Children in Home:</div>
+                <div class="detail-value">{{hasChildren}} <br/>Ages: {{childrenAges}}</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Pet Allergies:</div>
+                <div class="detail-value">{{hasAllergies}} <br/>Details: {{allergyDetails}}</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="section-title">Pet Experience</h3>
+            <div class="detail-row">
+                <div class="detail-label">Current Pets:</div>
+                <div class="detail-value">{{currentPets}}</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Previous Experience:</div>
+                <div class="detail-value">{{pastPetsExperience}}</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Veterinarian Access:</div>
+                <div class="detail-value">{{vetAccess}}</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="section-title">Lifestyle & Care Plans</h3>
+            <div class="detail-row">
+                <div class="detail-label">Work Arrangement:</div>
+                <div class="detail-value">{{workArrangement}}</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Daily Alone Hours:</div>
+                <div class="detail-value">{{dailyAloneHours}}</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Travel Frequency:</div>
+                <div class="detail-value">{{travelFrequency}} <br/>Plans: {{travelPlans}}</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Pet Location When Alone:</div>
+                <div class="detail-value">{{petLocation}}</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Exercise Plan:</div>
+                <div class="detail-value">{{exercisePlan}}</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Training Approach:</div>
+                <div class="detail-value">{{trainingApproach}}</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="section-title">Commitment</h3>
+            <div class="detail-row">
+                <div class="detail-label">Financial Preparedness:</div>
+                <div class="detail-value">{{financialPreparedness}}</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Moving Plans:</div>
+                <div class="detail-value">{{movingPlans}}</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">If Can't Keep Pet:</div>
+                <div class="detail-value">{{surrenderPrevention}}</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="section-title">About {{pet_name}}</h3>
+            <div class="detail-row">
+                <div class="detail-label">Why this pet:</div>
+                <div class="detail-value">{{whyThisPet}}</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Additional Info:</div>
+                <div class="detail-value">{{additionalInfo}}</div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+        
+        <div style="text-align: center;">
+            <a href="mailto:{{email}}?subject=Re: Adoption Application for {{pet_name}}" class="action-button">Reply to Applicant</a>
+            <a href="https://your-shelter.com/dashboard/applications" class="action-button" style="background-color: #50b83c;">View in Dashboard</a>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>This application was submitted via {{shelter_name}}.</p>
+        <p>© {{year}} {{shelter_name}}. All rights reserved.</p>
+    </div>
+</body>
+</html>

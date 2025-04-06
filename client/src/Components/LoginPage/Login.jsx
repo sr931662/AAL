@@ -64,7 +64,7 @@ const Login = () => {
                 placeholder="Enter email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className={styles.input}
+                className={styles.email}
                 required
             />
             <input

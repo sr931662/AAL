@@ -8,6 +8,8 @@
 
 .form {
     background: white;
+    display: flex;
+    flex-direction: column;
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -20,8 +22,17 @@
     color: #333;
 }
 
+.email {
+    width: auto;
+    padding: 0.8rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    background: white;
+}
 .input {
-    width: 100%;
+    width: auto;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
