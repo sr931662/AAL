@@ -26,7 +26,7 @@ const useScrollToTop = () => {
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
+      <Navbar /> 
       <Routes>
         <Route exact path="/" element={<Home_page />} />
         <Route exact path="/about-us" element={<About_page />} />
